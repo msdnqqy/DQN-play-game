@@ -1,4 +1,4 @@
-from QlearningPlayMaze.maze import Maze
+from maza.maze import Maze
 from QlearningPlayMaze.q_learning import Q_Learning
 
 Env=Maze()

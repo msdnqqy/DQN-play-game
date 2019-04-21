@@ -2,12 +2,11 @@ import numpy as np
 import sys
 import random
 import pygame
-import game.flappy_bird_utils
+import game.flappy_bird_utils as flappy_bird_utils
 import pygame.surfarray as surfarray
 from pygame.locals import *
 from itertools import cycle
-
-FPS = 30
+FPS = 60#帧率
 SCREENWIDTH  = 288
 SCREENHEIGHT = 512
 
@@ -81,7 +80,7 @@ class GameState:
             if pipeMidPos <= playerMidPos < pipeMidPos + 4:
                 self.score += 1
                 #SOUNDS['point'].play()
-                reward = 1
+                reward = 10
 
         # playerIndex basex change
         if (self.loopIter + 1) % 3 == 0:
@@ -123,7 +122,7 @@ class GameState:
             #SOUNDS['die'].play()
             terminal = True
             self.__init__()
-            reward = -1
+            reward = -100
 
         # draw sprites
         SCREEN.blit(IMAGES['background'], (0,0))
